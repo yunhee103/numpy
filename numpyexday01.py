@@ -137,6 +137,7 @@ print('-------------------------------------------------------------------------
 #  [ 0.05807754  0.63466469 -0.90317403  0.11848534  1.26334224]]
 
 # ~ 출력 결과 ~
+np.random.seed(1)
 arr = np.random.randn(4, 5)
 print('평균 : ', np.mean(arr))
 print('합계 :', np.sum(arr))
@@ -145,11 +146,17 @@ print('분산 :', np.var(arr))
 print('최댓값 :', np.max(arr))
 print('최솟값 :', np.min(arr))
 print('1사분위 수 :', np.percentile(arr, 25))
+#percentile에 sort가 되어있음을 확인
+print('arr :', arr)
+aa = np.sort(arr)
+print(aa)
+lowerdata = arr[arr <= np.percentile(arr, 25)]
+print('lowerdata : ' , lowerdata)
 print('2사분위 수 :', np.percentile(arr, 50))
 print('3사분위 수 :', np.percentile(arr, 75))
 print('요소값 누적합 :', np.cumsum(arr)) 
 
-# numpy 문제 추가 ~~~~~~~~~~~~~~~~~~~~~
+# numpy 문제 추가 
 
 # Q1) 브로드캐스팅과 조건 연산
 # 다음 두 배열이 있을 때,
